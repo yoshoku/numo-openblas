@@ -20,6 +20,9 @@ Or install it yourself as:
 
     $ gem install numo-openblas
 
+Note: Numo::OpenBLAS downloads and builds OpenBLAS during installation.
+In many cases, building OpenBLAS takes a lot of time.
+
 ## Usage
 
 TODO: Write usage instructions here
