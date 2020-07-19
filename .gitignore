@@ -1,5 +1,6 @@
 /.bundle/
 /.yardoc
+/Gemfile.lock
 /_yardoc/
 /coverage/
 /doc/
@@ -9,3 +10,7 @@
 
 # rspec failure tracking
 .rspec_status
+
+*.swp
+.DS_Store
+.ruby-version
