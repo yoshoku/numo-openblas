@@ -6,8 +6,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ['yoshoku']
   spec.email         = ['yoshoku@outlook.com']
 
-  spec.summary       = 'Write a short summary, because RubyGems requires one.'
-  spec.description   = 'Write a longer description or delete this line.'
+  spec.summary       = <<~MSG
+    Numo::OpenBLAS downloads and builds OpenBLAS during installation and
+    uses that as a background library for Numo::Linalg.
+  MSG
+  spec.description   = <<~MSG
+    Numo::OpenBLAS downloads and builds OpenBLAS during installation and
+    uses that as a background library for Numo::Linalg.
+  MSG
   spec.homepage      = 'https://github.com/yoshoku/numo-openblas'
   spec.license       = 'BSD-3-Clause'
 
