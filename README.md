@@ -25,7 +25,16 @@ In many cases, building OpenBLAS takes a lot of time.
 
 ## Usage
 
-TODO: Write usage instructions here
+Numo::OpenBLAS loads Numo::NArray and Numo::Linalg using OpenBLAS as a background library.
+You can use Numo::NArray and Numo::Linalg just by loading Numo::OpenBLAS.
+
+```ruby
+require 'numo/openblas'
+
+x = Numo::DFloat.new(5, 2).rand
+c = x.transpose.dot(x)
+eig_val, eig_vec = Numo::Linalg.eigh(c)
+```
 
 ## Contributing
 
