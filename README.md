@@ -1,5 +1,9 @@
 # Numo::OpenBLAS
 
+[![Build Status](https://travis-ci.org/yoshoku/numo-openblas.svg?branch=master)](https://travis-ci.org/yoshoku/numo-openblas)
+[![Gem Version](https://badge.fury.io/rb/numo-openblas.svg)](https://badge.fury.io/rb/numo-openblas)
+[![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/yoshoku/suika/blob/master/LICENSE.txt)
+
 Numo::OpenBLAS downloads and builds [OpenBLAS](https://www.openblas.net/) during installation and
 uses that as a background library for [Numo::Linalg](https://github.com/ruby-numo/numo-linalg).
 
