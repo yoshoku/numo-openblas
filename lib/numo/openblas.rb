@@ -2,7 +2,6 @@
 
 require 'numo/narray'
 require 'numo/linalg/linalg'
-
 require 'numo/openblas/version'
 
 module Numo
@@ -24,12 +23,8 @@ module Numo
         Numo::Linalg::Lapack.dlopen(openblas_path)
         @@libs = [openblas_path]
       end
-
-      def load_library
-        load_openblas
-      end
     end
   end
 end
 
-Numo::Linalg::Loader.load_library
+Numo::Linalg::Loader.load_openblas
