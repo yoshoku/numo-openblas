@@ -3,6 +3,7 @@
 require 'rubygems'
 require 'rubygems/package'
 
+require 'digest/sha1'
 require 'etc'
 require 'fileutils'
 require 'open-uri'
@@ -10,6 +11,7 @@ require 'open3'
 
 Gem.post_install do
   openblas_ver = '0.3.10'
+  openblas_key = 'cbe3fdd0e6ee235debc611d76976dac62f3ddc1c'
   openblas_uri = "https://github.com/xianyi/OpenBLAS/archive/v#{openblas_ver}.tar.gz"
   openblas_dir = File.expand_path(__dir__ + '/../vendor')
 
@@ -19,6 +21,8 @@ Gem.post_install do
   URI.open(openblas_uri) do |rf|
     File.open("#{openblas_dir}/tmp/openblas.tgz", 'wb') { |sf| sf.write(rf.read) }
   end
+
+  next false if openblas_key != Digest::SHA1.file("#{openblas_dir}/tmp/openblas.tgz").to_s
 
   puts 'Unpacking OpenBLAS tar.gz file.'
   Gem::Package::TarReader.new(Zlib::GzipReader.open("#{openblas_dir}/tmp/openblas.tgz")) do |tar|
