@@ -3,6 +3,7 @@
 require 'numo/narray'
 require 'numo/linalg/linalg'
 require 'numo/openblas/version'
+require 'numo/openblas/openblas'
 
 module Numo
   module Linalg

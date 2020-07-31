@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
+  spec.extensions    = ['ext/numo/openblas/extconf.rb']
 
   spec.add_runtime_dependency 'numo-linalg', '>= 0.1.4'
 end
