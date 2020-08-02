@@ -39,6 +39,17 @@ c = x.transpose.dot(x)
 eig_val, eig_vec = Numo::Linalg.eigh(c)
 ```
 
+Moreover, some of the build options are defined by constants.
+
+```ruby
+> Numo::OpenBLAS::OPENBLAS_VERSION
+=> " OpenBLAS 0.3.10 "
+> Numo::OpenBLAS::OPENBLAS_CHAR_CORENAME
+=> "HASWELL"
+> Numo::OpenBLAS::OPENBLAS_NUM_CORES
+=> 8
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/yoshoku/numo-openblas. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/yoshoku/numo-openblas/blob/master/CODE_OF_CONDUCT.md).
