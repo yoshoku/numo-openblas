@@ -44,7 +44,7 @@ unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.log", 'w') { |f| f.puts(mkstdout) }
     unless mkstatus.success?
       puts 'Failed to build OpenBLAS.'
-      puts 'Check the make-openblas.log file for more details:'
+      puts 'Check the openblas.log file for more details:'
       puts "#{OPENBLAS_DIR}/tmp/openblas.log"
       exit(1)
     end
@@ -54,7 +54,7 @@ unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.log", 'a') { |f| f.puts(insstdout) }
     unless insstatus.success?
       puts 'Failed to install OpenBLAS.'
-      puts 'Check the make-openblas.log file for more details:'
+      puts 'Check the openblas.log file for more details:'
       puts "#{OPENBLAS_DIR}/tmp/openblas.log"
       exit(1)
     end
