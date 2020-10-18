@@ -1,6 +1,6 @@
 ---
 os: linux
-dist: xenial
+dist: bionic
 language: ruby
 cache: bundler
 rvm:
@@ -14,3 +14,6 @@ addons:
 
 before_install:
   - gem install bundler -v 2.1.2
+
+after_failure:
+  - cat /home/travis/build/yoshoku/numo-openblas/vendor/tmp/openblas.log
