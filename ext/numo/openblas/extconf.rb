@@ -8,8 +8,8 @@ require 'open-uri'
 require 'open3'
 require 'rubygems/package'
 
-OPENBLAS_VER = '0.3.10'
-OPENBLAS_KEY = 'cbe3fdd0e6ee235debc611d76976dac62f3ddc1c'
+OPENBLAS_VER = '0.3.11'
+OPENBLAS_KEY = '3b21ad856f68f1799ac5f65319f07007a8a89200'
 OPENBLAS_URI = "https://github.com/xianyi/OpenBLAS/archive/v#{OPENBLAS_VER}.tar.gz"
 OPENBLAS_DIR = File.expand_path(__dir__ + '/../../../vendor')
 
