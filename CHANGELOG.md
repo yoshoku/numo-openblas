@@ -1,3 +1,6 @@
+## 0.2.2
+- Change the version of OpenBLAS to be downloaded to 0.3.12.
+
 ## 0.2.1
 - Change the version of OpenBLAS to be downloaded to 0.3.11.
 
