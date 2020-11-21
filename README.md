@@ -1,6 +1,6 @@
 # Numo::OpenBLAS
 
-[![Build Status](https://travis-ci.org/yoshoku/numo-openblas.svg?branch=master)](https://travis-ci.org/yoshoku/numo-openblas)
+[![Build Status](https://github.com/yoshoku/numo-openblas/workflows/build/badge.svg)](https://github.com/yoshoku/numo-openblas/actions?query=workflow%3Abuild)
 [![Gem Version](https://badge.fury.io/rb/numo-openblas.svg)](https://badge.fury.io/rb/numo-openblas)
 [![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/yoshoku/suika/blob/master/LICENSE.txt)
 
