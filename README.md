@@ -9,6 +9,16 @@ uses that as a background library for [Numo::Linalg](https://github.com/ruby-num
 
 ## Installation
 
+Building LAPACK included with OpenBLAS requires Fortran compiler.
+
+macOS:
+
+    $ brew install gfortran
+
+Ubuntu:
+
+    $ sudo apt-get install gfortran
+
 Add this line to your application's Gemfile:
 
 ```ruby
