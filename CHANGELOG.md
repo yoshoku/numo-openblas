@@ -1,3 +1,6 @@
+## 0.3.1
+- Change the version of OpenBLAS to be downloaded to 0.3.13.
+
 ## 0.3.0
 - Simplified code for loading of OpenBLAS library.
 
