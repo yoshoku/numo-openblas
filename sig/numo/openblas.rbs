@@ -1,0 +1,8 @@
+module Numo
+  module OpenBLAS
+    VERSION: String
+    OPENBLAS_CHAR_CORENAME: String
+    OPENBLAS_NUM_CORES: Integer
+    OPENBLAS_VERSION: String
+  end
+end

@@ -1,0 +1,7 @@
+module Numo
+  module Linalg
+    module Loader
+      def self?.load_openblas: (*String dirs, ?exc: bool exc) -> bool
+    end
+  end
+end
