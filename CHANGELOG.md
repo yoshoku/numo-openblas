@@ -1,3 +1,6 @@
+## 0.4.0
+- Add type declaration file: sig/numo/openblas.rbs
+
 ## 0.3.2
 - Change the version of OpenBLAS to be downloaded to 0.3.15.
 
