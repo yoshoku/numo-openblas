@@ -7,10 +7,12 @@
 /pkg/
 /spec/reports/
 /tmp/
+/vendor/
 
 # rspec failure tracking
 .rspec_status
 
 *.swp
+*.bundle
 .DS_Store
 .ruby-version
