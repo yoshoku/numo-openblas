@@ -1,3 +1,6 @@
+## 0.4.1
+- Remove dependent gem's type declaration file from installation files.
+
 ## 0.4.0
 - Add type declaration file: sig/numo/openblas.rbs
 
