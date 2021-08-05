@@ -1,3 +1,7 @@
+## 0.4.2
+- Change the version of OpenBLAS to be downloaded to 0.3.16.
+- Fix API documentation.
+
 ## 0.4.1
 - Remove dependent gem's type declaration file from installation files.
 
