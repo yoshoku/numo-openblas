@@ -18,7 +18,7 @@ void Init_openblas()
   mNumo = rb_define_module("Numo");
 
   /**
-   * Document-module: Numo::Liblinear
+   * Document-module: Numo::OpenBLAS
    * Numo::OpenBLAS loads Numo::NArray and Linalg with OpenBLAS used as backend library.
    */
   mOpenBLAS = rb_define_module_under(mNumo, "OpenBLAS");
