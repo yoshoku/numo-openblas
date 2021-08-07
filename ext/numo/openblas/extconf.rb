@@ -19,10 +19,7 @@ unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.tgz", 'wb') { |sf| sf.write(rf.read) }
   end
 
-  if OPENBLAS_KEY != Digest::SHA1.file("#{OPENBLAS_DIR}/tmp/openblas.tgz").to_s
-    puts 'SHA1 digest of downloaded file does not match.'
-    exit(1)
-  end
+  abort('SHA1 digest of downloaded file does not match.') if OPENBLAS_KEY != Digest::SHA1.file("#{OPENBLAS_DIR}/tmp/openblas.tgz").to_s
 
   puts 'Unpacking OpenBLAS tar.gz file.'
   Gem::Package::TarReader.new(Zlib::GzipReader.open("#{OPENBLAS_DIR}/tmp/openblas.tgz")) do |tar|
@@ -42,35 +39,19 @@ unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
     puts 'Building OpenBLAS. This could take a while...'
     mkstdout, _mkstderr, mkstatus = Open3.capture3("make -j#{Etc.nprocessors}")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.log", 'w') { |f| f.puts(mkstdout) }
-    unless mkstatus.success?
-      puts 'Failed to build OpenBLAS.'
-      puts 'Check the openblas.log file for more details:'
-      puts "#{OPENBLAS_DIR}/tmp/openblas.log"
-      exit(1)
-    end
+    abort("Failed to build OpenBLAS. Check the openblas.log file for more details: #{OPENBLAS_DIR}/tmp/openblas.log") unless mkstatus.success?
 
     puts 'Installing OpenBLAS.'
     insstdout, _insstderr, insstatus = Open3.capture3("make install PREFIX=#{OPENBLAS_DIR}")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.log", 'a') { |f| f.puts(insstdout) }
-    unless insstatus.success?
-      puts 'Failed to install OpenBLAS.'
-      puts 'Check the openblas.log file for more details:'
-      puts "#{OPENBLAS_DIR}/tmp/openblas.log"
-      exit(1)
-    end
+    abort("Failed to install OpenBLAS. Check the openblas.log file for more details: #{OPENBLAS_DIR}/tmp/openblas.log") unless insstatus.success?
 
     FileUtils.touch("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
   end
 end
 
-unless find_library('openblas', nil, "#{OPENBLAS_DIR}/lib")
-  puts 'libopenblas is not found.'
-  exit(1)
-end
+abort('libopenblas is not found.') unless find_library('openblas', nil, "#{OPENBLAS_DIR}/lib")
 
-unless find_header('openblas_config.h', nil, "#{OPENBLAS_DIR}/include")
-  puts 'openblas_config.h is not found.'
-  exit(1)
-end
+abort('openblas_config.h is not found.') unless find_header('openblas_config.h', nil, "#{OPENBLAS_DIR}/include")
 
 create_makefile('numo/openblas/openblas')
