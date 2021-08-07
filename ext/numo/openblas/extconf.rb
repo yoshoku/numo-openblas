@@ -14,14 +14,12 @@ OPENBLAS_URI = "https://github.com/xianyi/OpenBLAS/archive/v#{OPENBLAS_VER}.tar.
 OPENBLAS_DIR = File.expand_path(__dir__ + '/../../../vendor')
 
 unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
-  puts "Downloading OpenBLAS #{OPENBLAS_VER}."
   URI.open(OPENBLAS_URI) do |rf|
     File.open("#{OPENBLAS_DIR}/tmp/openblas.tgz", 'wb') { |sf| sf.write(rf.read) }
   end
 
   abort('SHA1 digest of downloaded file does not match.') if OPENBLAS_KEY != Digest::SHA1.file("#{OPENBLAS_DIR}/tmp/openblas.tgz").to_s
 
-  puts 'Unpacking OpenBLAS tar.gz file.'
   Gem::Package::TarReader.new(Zlib::GzipReader.open("#{OPENBLAS_DIR}/tmp/openblas.tgz")) do |tar|
     tar.each do |entry|
       next unless entry.file?
@@ -36,12 +34,10 @@ unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
   end
 
   Dir.chdir("#{OPENBLAS_DIR}/tmp/OpenBLAS-#{OPENBLAS_VER}") do
-    puts 'Building OpenBLAS. This could take a while...'
     mkstdout, _mkstderr, mkstatus = Open3.capture3("make -j#{Etc.nprocessors}")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.log", 'w') { |f| f.puts(mkstdout) }
     abort("Failed to build OpenBLAS. Check the openblas.log file for more details: #{OPENBLAS_DIR}/tmp/openblas.log") unless mkstatus.success?
 
-    puts 'Installing OpenBLAS.'
     insstdout, _insstderr, insstatus = Open3.capture3("make install PREFIX=#{OPENBLAS_DIR}")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.log", 'a') { |f| f.puts(insstdout) }
     abort("Failed to install OpenBLAS. Check the openblas.log file for more details: #{OPENBLAS_DIR}/tmp/openblas.log") unless insstatus.success?
