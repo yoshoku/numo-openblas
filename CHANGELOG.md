@@ -1,3 +1,6 @@
+## 0.4.4
+- Change the version of OpenBLAS to be downloaded to 0.3.18.
+
 ## 0.4.3
 - Change the version of OpenBLAS to be downloaded to 0.3.17.
 - Refactor build script.
