@@ -62,12 +62,10 @@ Moreover, some of the build options are defined by constants.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/yoshoku/numo-openblas. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/yoshoku/numo-openblas/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/yoshoku/numo-openblas.
+This project is intended to be a safe, welcoming space for collaboration,
+and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 The gem is available as open source under the terms of the [BSD-3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
-
-## Code of Conduct
-
-Everyone interacting in the Numo::Openblas project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/yoshoku/numo-openblas/blob/main/CODE_OF_CONDUCT.md).
