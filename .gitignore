@@ -8,11 +8,13 @@
 /spec/reports/
 /tmp/
 /vendor/
+/node_modules/
 
 # rspec failure tracking
 .rspec_status
 
 *.swp
 *.bundle
+*.lock
 .DS_Store
 .ruby-version
