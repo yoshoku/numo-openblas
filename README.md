@@ -33,8 +33,30 @@ Or install it yourself as:
 
     $ gem install numo-openblas
 
-Note: Numo::OpenBLAS downloads and builds OpenBLAS during installation.
-In many cases, building OpenBLAS takes a lot of time.
+Note:
+Numo::OpenBLAS downloads and builds OpenBLAS during installation. In many cases, building OpenBLAS takes a lot of time.
+In addtion, the building OpenBLAS may fail on Apple M1 mac due to linker error:
+
+```sh
+ld: warning: object file (...) was built for newer macOS version (...) than being linked (...)
+...
+Undefined symbols for architecture arm64:
+  "___chkstk_darwin", referenced from:
+  _sgemv_ in libopenblas_vortexp-r0.3.19.a(sgemv.o)
+  _sger_ in libopenblas_vortexp-r0.3.19.a(sger.o)
+  _cblas_sgemv in libopenblas_vortexp-r0.3.19.a(cblas_sgemv.o)
+  _cblas_sger in libopenblas_vortexp-r0.3.19.a(cblas_sger.o)
+  _dgemv_ in libopenblas_vortexp-r0.3.19.a(dgemv.o)
+  _dger_ in libopenblas_vortexp-r0.3.19.a(dger.o)
+  _cblas_dgemv in libopenblas_vortexp-r0.3.19.a(cblas_dgemv.o)
+  ...
+ld: symbol(s) not found for architecture arm64
+```
+
+In that case, you can install it by giving `MACOSX_DEPLOYMENT_TARGET` your mac version.
+If you are using macOS Monterey, the installation command would be:
+
+    $ MACOSX_DEPLOYMENT_TARGET=12.0 gem install numo-openblas
 
 ## Usage
 
