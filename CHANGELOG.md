@@ -1,3 +1,7 @@
+## 0.4.6
+- Change the version of OpenBLAS to be downloaded to 0.3.20.
+- Introduce conventional commits.
+
 ## 0.4.5
 - Change the version of OpenBLAS to be downloaded to 0.3.19.
 
