@@ -1,14 +1,14 @@
 # frozen-string-literal: true
 
 RSpec.describe Numo::OpenBLAS do
-  it 'has some constant values' do
+  it 'has some constant values', :aggregate_failures do
     expect(Numo::OpenBLAS::VERSION).not_to be_nil
     expect(Numo::OpenBLAS::OPENBLAS_CHAR_CORENAME).not_to be_nil
     expect(Numo::OpenBLAS::OPENBLAS_NUM_CORES).not_to be_nil
     expect(Numo::OpenBLAS::OPENBLAS_VERSION).not_to be_nil
   end
 
-  it 'has a library path' do
+  it 'has a library path', :aggregate_failures do
     expect(Numo::Linalg::Loader.libs).not_to be_nil
     expect(Numo::Linalg::Loader.libs.size).to eq(1)
     expect(Numo::Linalg::Loader.libs.first).to include('libopenblas')
