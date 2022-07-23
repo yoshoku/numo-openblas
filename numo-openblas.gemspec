@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'lib/numo/openblas/version'
 
 Gem::Specification.new do |spec|
@@ -10,7 +12,7 @@ Gem::Specification.new do |spec|
     Numo::OpenBLAS downloads and builds OpenBLAS during installation and
     uses that as a background library for Numo::Linalg.
   MSG
-  spec.description   = <<~MSG
+  spec.description = <<~MSG
     Numo::OpenBLAS downloads and builds OpenBLAS during installation and
     uses that as a background library for Numo::Linalg.
   MSG
@@ -26,7 +28,7 @@ Gem::Specification.new do |spec|
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|sig-deps)/}) }
-                                  .select { |f| f.match(/\.(?:rb|rbs|h|c|md|txt)$/) }
+                     .select { |f| f.match(/\.(?:rb|rbs|h|c|md|txt)$/) }
   end
   spec.files << 'vendor/tmp/.gitkeep'
 
@@ -36,4 +38,5 @@ Gem::Specification.new do |spec|
   spec.extensions    = ['ext/numo/openblas/extconf.rb']
 
   spec.add_runtime_dependency 'numo-linalg', '>= 0.1.4'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end
