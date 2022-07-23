@@ -1,0 +1,50 @@
+require:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - 'ext/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'Steepfile'
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/ParameterLists:
+  Max: 8
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 16
+
+RSpec/FilePath:
+  Exclude:
+    - 'spec/numo/openblas_spec.rb'
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 16
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 5
+
+Security/MarshalLoad:
+  Exclude:
+    - 'spec/**/*'
