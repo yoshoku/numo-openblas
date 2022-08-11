@@ -1,3 +1,6 @@
+## 0.4.8
+- Change the version of OpenBLAS to be downloaded to 0.3.21.
+
 ## 0.4.7
 - Refactor codes and configs with RuboCop.
 
