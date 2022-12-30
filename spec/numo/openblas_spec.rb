@@ -1,4 +1,4 @@
-# frozen-string-literal: true
+# frozen_string_literal: true
 
 RSpec.describe Numo::OpenBLAS do
   it 'has some constant values', :aggregate_failures do
