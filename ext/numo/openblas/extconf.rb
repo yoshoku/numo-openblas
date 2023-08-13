@@ -1,6 +1,6 @@
-# frozen-string-literal: true
+# frozen_string_literal: true
 
-require 'digest/sha1'
+require 'digest/md5'
 require 'etc'
 require 'fileutils'
 require 'mkmf'
@@ -9,16 +9,16 @@ require 'open3'
 require 'rubygems/package'
 
 OPENBLAS_VER = '0.3.23'
-OPENBLAS_KEY = '6b781727c7b95850ae4a3eb0a391492eb4f3e780'
+OPENBLAS_KEY = '115634b39007de71eb7e75cf7591dfb2'
 OPENBLAS_URI = "https://github.com/xianyi/OpenBLAS/archive/v#{OPENBLAS_VER}.tar.gz"
-OPENBLAS_DIR = File.expand_path(__dir__ + '/../../../vendor')
+OPENBLAS_DIR = File.expand_path("#{__dir__}/../../../vendor")
 
 unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
-  URI.open(OPENBLAS_URI) do |rf|
-    File.open("#{OPENBLAS_DIR}/tmp/openblas.tgz", 'wb') { |sf| sf.write(rf.read) }
-  end
+  URI.parse(OPENBLAS_URI).open { |f| File.binwrite("#{OPENBLAS_DIR}/tmp/openblas.tgz", f.read) }
 
-  abort('SHA1 digest of downloaded file does not match.') if OPENBLAS_KEY != Digest::SHA1.file("#{OPENBLAS_DIR}/tmp/openblas.tgz").to_s
+  if Digest::MD5.file("#{OPENBLAS_DIR}/tmp/openblas.tgz").to_s != OPENBLAS_KEY
+    abort('MD5 digest of downloaded file does not match.')
+  end
 
   Gem::Package::TarReader.new(Zlib::GzipReader.open("#{OPENBLAS_DIR}/tmp/openblas.tgz")) do |tar|
     tar.each do |entry|
@@ -28,7 +28,7 @@ unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
       next if filename == File.dirname(filename)
 
       FileUtils.mkdir_p("#{OPENBLAS_DIR}/tmp/#{File.dirname(entry.full_name)}")
-      File.open(filename, 'wb') { |f| f.write(entry.read) }
+      File.binwrite(filename, entry.read)
       File.chmod(entry.header.mode, filename)
     end
   end
@@ -36,11 +36,15 @@ unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
   Dir.chdir("#{OPENBLAS_DIR}/tmp/OpenBLAS-#{OPENBLAS_VER}") do
     mkstdout, _mkstderr, mkstatus = Open3.capture3("make -j#{Etc.nprocessors}")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.log", 'w') { |f| f.puts(mkstdout) }
-    abort("Failed to build OpenBLAS. Check the openblas.log file for more details: #{OPENBLAS_DIR}/tmp/openblas.log") unless mkstatus.success?
+    unless mkstatus.success?
+      abort("Failed to build OpenBLAS. Check the openblas.log file for more details: #{OPENBLAS_DIR}/tmp/openblas.log")
+    end
 
     insstdout, _insstderr, insstatus = Open3.capture3("make install PREFIX=#{OPENBLAS_DIR}")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.log", 'a') { |f| f.puts(insstdout) }
-    abort("Failed to install OpenBLAS. Check the openblas.log file for more details: #{OPENBLAS_DIR}/tmp/openblas.log") unless insstatus.success?
+    unless insstatus.success?
+      abort("Failed to install OpenBLAS. Check the openblas.log file for more details: #{OPENBLAS_DIR}/tmp/openblas.log")
+    end
 
     FileUtils.touch("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
   end
