@@ -1,3 +1,9 @@
+## 0.4.10
+- Refactor extconf.rb with RuboCop.
+- Change to check download file with MD5.
+- Add vendor/bin directory to OpenBLAS load directory for Windows ([#2](https://github.com/yoshoku/numo-openblas/pull/2)).
+  - Since the author does not have a Windows PC, the operation cannot be confirmed.
+
 ## 0.4.9
 - Change the version of OpenBLAS to be downloaded to 0.3.23.
 
