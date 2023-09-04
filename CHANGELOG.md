@@ -1,3 +1,6 @@
+## 0.4.11
+- Change the version of OpenBLAS to be downloaded to 0.3.24.
+
 ## 0.4.10
 - Refactor extconf.rb with RuboCop.
 - Change to check download file with MD5.
