@@ -8,9 +8,9 @@ require 'open-uri'
 require 'open3'
 require 'rubygems/package'
 
-OPENBLAS_VER = '0.3.24'
-OPENBLAS_KEY = '23599a30e4ce887590957d94896789c8'
-OPENBLAS_URI = "https://github.com/xianyi/OpenBLAS/archive/v#{OPENBLAS_VER}.tar.gz"
+OPENBLAS_VER = '0.3.25'
+OPENBLAS_KEY = '48384e324cd1cdcfbdb0d2e16ca55327'
+OPENBLAS_URI = "https://github.com/OpenMathLib/OpenBLAS/archive/v#{OPENBLAS_VER}.tar.gz"
 OPENBLAS_DIR = File.expand_path("#{__dir__}/../../../vendor")
 
 unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
