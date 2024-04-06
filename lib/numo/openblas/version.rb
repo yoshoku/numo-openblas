@@ -5,6 +5,6 @@ module Numo
   # Numo::OpenBLAS loads Numo::NArray and Linalg with OpenBLAS used as backend library.
   module OpenBLAS
     # The version of Numo::OpenBLAS you install.
-    VERSION = '0.4.13'
+    VERSION = '0.4.14'
   end
 end
