@@ -37,6 +37,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.extensions    = ['ext/numo/openblas/extconf.rb']
 
-  spec.add_runtime_dependency 'numo-linalg', '>= 0.1.4'
+  spec.add_dependency 'numo-linalg', '>= 0.1.4'
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
