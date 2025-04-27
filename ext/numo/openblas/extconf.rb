@@ -34,7 +34,7 @@ unless File.exist?("#{OPENBLAS_DIR}/installed_#{OPENBLAS_VER}")
   end
 
   Dir.chdir("#{OPENBLAS_DIR}/tmp/OpenBLAS-#{OPENBLAS_VER}") do
-    mkstdout, _mkstderr, mkstatus = Open3.capture3("make -j#{Etc.nprocessors}")
+    mkstdout, _mkstderr, mkstatus = Open3.capture3("make -j#{Etc.nprocessors} shared")
     File.open("#{OPENBLAS_DIR}/tmp/openblas.log", 'w') { |f| f.puts(mkstdout) }
     unless mkstatus.success?
       abort("Failed to build OpenBLAS. Check the openblas.log file for more details: #{OPENBLAS_DIR}/tmp/openblas.log")
