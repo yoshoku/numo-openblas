@@ -1,4 +1,5 @@
-require:
+plugins:
+  - rubocop-capybara
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
@@ -33,10 +34,6 @@ Naming/MethodParameterName:
 
 RSpec/ExampleLength:
   Max: 16
-
-RSpec/FilePath:
-  Exclude:
-    - 'spec/numo/openblas_spec.rb'
 
 RSpec/MultipleMemoizedHelpers:
   Max: 16
