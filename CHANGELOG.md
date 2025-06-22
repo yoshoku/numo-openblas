@@ -1,4 +1,9 @@
+## [[0.5.1](https://github.com/yoshoku/numo-openblas/compare/v0.5.0...v0.5.1)]
+
+- Change the version of OpenBLAS to be downloaded to [0.3.30](https://github.com/OpenMathLib/OpenBLAS/releases/tag/v0.3.30).
+
 ## [[0.5.0](https://github.com/yoshoku/numo-openblas/compare/v0.4.16...v0.5.0)]
+
 - Add 'shared' target to make command of OpenBLAS for reducing build time.
 
 ## [[0.4.16](https://github.com/yoshoku/numo-openblas/compare/v0.4.15...v0.4.16)]
