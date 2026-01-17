@@ -1,5 +1,7 @@
 # Numo::OpenBLAS
 
+**This library is no longer actively maintained. Please consider migrating to [numo-linalg-alt](https://github.com/yoshoku/numo-linalg-alt).**
+
 [![Build Status](https://github.com/yoshoku/numo-openblas/workflows/build/badge.svg)](https://github.com/yoshoku/numo-openblas/actions?query=workflow%3Abuild)
 [![Gem Version](https://badge.fury.io/rb/numo-openblas.svg)](https://badge.fury.io/rb/numo-openblas)
 [![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/yoshoku/numo-openblas/blob/main/LICENSE.txt)
