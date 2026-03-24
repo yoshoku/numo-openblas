@@ -8,8 +8,8 @@ require 'open-uri'
 require 'open3'
 require 'rubygems/package'
 
-OPENBLAS_VER = '0.3.31'
-OPENBLAS_KEY = '05050271d9196f65bc4ac3a89c6a3b05'
+OPENBLAS_VER = '0.3.32'
+OPENBLAS_KEY = '021eb76c3fc66290b6ce14fa4c1ff3de'
 OPENBLAS_URI = "https://github.com/OpenMathLib/OpenBLAS/archive/v#{OPENBLAS_VER}.tar.gz"
 OPENBLAS_DIR = File.expand_path("#{__dir__}/../../../vendor")
 
