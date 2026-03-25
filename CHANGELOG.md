@@ -1,3 +1,7 @@
+## [[0.5.3](https://github.com/yoshoku/numo-openblas/compare/v0.5.2...v0.5.3)]
+
+- Change the version of OpenBLAS to be downloaded to [0.3.32](https://github.com/OpenMathLib/OpenBLAS/releases/tag/v0.3.322).
+
 ## [[0.5.2](https://github.com/yoshoku/numo-openblas/compare/v0.5.1...v0.5.2)]
 
 - Change the version of OpenBLAS to be downloaded to [0.3.31](https://github.com/OpenMathLib/OpenBLAS/releases/tag/v0.3.31).
