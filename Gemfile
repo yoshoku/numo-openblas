@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in numo-openblas.gemspec
 gemspec
 
+gem 'fiddle', '~> 1.1'
 gem 'rake', '~> 13.0'
 gem 'rake-compiler', '~> 1.0'
 gem 'rbs', '~> 1.2'
